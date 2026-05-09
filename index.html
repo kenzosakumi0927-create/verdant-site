@@ -5,9 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VERDANT ｜ 静岡県の外壁塗装 ・ 屋根塗装 専門店</title>
 <meta name="description" content="静岡県静岡市駿河区の外壁塗装専門店ヴァーダント。塗料を選び、職人を選び、十年先も美しい住まいへ。">
+
+<!-- ===== ★ PERF: ヒーロー画像 preload（LCP対策・最優先） ===== -->
+<link rel="preload" as="image" href="images/03-hero-fuji.webp" type="image/webp" fetchpriority="high">
+
+<!-- ===== ★ PERF: フォント preconnect ===== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- ===== ★ PERF: フォントを非同期読み込み（レンダリングをブロックしない） ===== -->
+<!-- ウェイトを実使用分に絞り込み: 18ウェイト → 7ウェイトへ削減 -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@500&family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@500&family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@500&family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400&display=swap"></noscript>
+
 <style>
   /* ============================================
      COLOR THEMES (4 patterns)
@@ -167,7 +178,7 @@
     font-family: "Cormorant Garamond", serif;
     font-weight: 400;
   }
-  .hero h1 .light{ font-weight: 300; color: var(--c-isoft); }
+  .hero h1 .light{ font-weight: 400; color: var(--c-isoft); }
   .hero-sub{
     font-size: 1rem; line-height: 2.1;
     color: var(--c-isoft);
@@ -835,13 +846,8 @@
     .ai-chat-launcher{ bottom: 1rem; right: 1rem; width: 56px; height: 56px; }
   }
 
-  /* ============================================
-     ★ NEW: SYMPTOMS DIAGNOSIS（症状診断）
-     ============================================ */
-  .symptoms{
-    background: var(--c-cream);
-    padding: 8rem 3rem;
-  }
+  /* SYMPTOMS */
+  .symptoms{ background: var(--c-cream); padding: 8rem 3rem; }
   .symptoms-grid{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -850,7 +856,7 @@
   }
   .symptom{
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 1.5rem;
     background: var(--c-paper);
     border: 1px solid var(--c-line);
     transition: all 0.4s;
@@ -892,7 +898,6 @@
   .symptom:hover .symptom-icon::after{
     background: linear-gradient(180deg, transparent 70%, rgba(176,122,59,0.25));
   }
-  .symptom{ padding: 1.5rem; }
   .symptom-name{
     font-family: "Noto Serif JP", serif;
     font-size: 1.05rem;
@@ -924,21 +929,14 @@
     margin-bottom: 1.5rem;
   }
 
-  /* ============================================
-     ★ NEW: CRAFTSMEN（職人紹介）
-     ============================================ */
-  .craftsmen{
-    background: var(--c-paper);
-    padding: 8rem 3rem;
-  }
+  /* CRAFTSMEN */
+  .craftsmen{ background: var(--c-paper); padding: 8rem 3rem; }
   .craftsmen-grid{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
   }
-  .craftsman{
-    cursor: pointer;
-  }
+  .craftsman{ cursor: pointer; }
   .craftsman-photo{
     aspect-ratio: 3/4;
     background: var(--c-cdark);
@@ -1006,13 +1004,8 @@
     border: 1px solid var(--c-line);
   }
 
-  /* ============================================
-     ★ NEW: PAINTS（塗料ラインアップ）
-     ============================================ */
-  .paints{
-    background: var(--c-cream);
-    padding: 8rem 3rem;
-  }
+  /* PAINTS */
+  .paints{ background: var(--c-cream); padding: 8rem 3rem; }
   .paints-grid{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1076,9 +1069,7 @@
     justify-content: space-between;
     line-height: 1.6;
   }
-  .paint-spec-label{
-    color: var(--c-isoft);
-  }
+  .paint-spec-label{ color: var(--c-isoft); }
   .paint-card.featured .paint-spec-label{ color: rgba(245,237,224,0.6); }
   .paint-spec strong{
     font-family: "Cormorant Garamond", serif;
@@ -1107,9 +1098,7 @@
     letter-spacing: 0.2em;
   }
 
-  /* ============================================
-     ★ NEW: STORY（創業ストーリー）
-     ============================================ */
+  /* STORY */
   .story{
     background: var(--c-deep);
     color: var(--c-cream);
@@ -1153,9 +1142,7 @@
     position: absolute; inset: 0;
     background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.4));
   }
-  .story-content .section-label{
-    color: var(--c-accent);
-  }
+  .story-content .section-label{ color: var(--c-accent); }
   .story-title{
     font-family: "Noto Serif JP", serif;
     font-size: clamp(1.8rem, 3.5vw, 2.8rem);
@@ -1192,9 +1179,7 @@
     color: var(--c-cream);
   }
 
-  /* ============================================
-     ★ NEW: JOURNAL（ブログ／日記）
-     ============================================ */
+  /* JOURNAL */
   .journal{ background: var(--c-paper); padding: 8rem 3rem; }
   .journal-grid{
     display: grid;
@@ -1249,17 +1234,9 @@
     line-height: 1.8;
   }
 
-  /* ============================================
-     ★ NEW: WARRANTY（保証・資格）
-     ============================================ */
-  .warranty{
-    background: var(--c-cream);
-    padding: 8rem 3rem;
-  }
-  .warranty-wrap{
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+  /* WARRANTY */
+  .warranty{ background: var(--c-cream); padding: 8rem 3rem; }
+  .warranty-wrap{ max-width: 1200px; margin: 0 auto; }
   .warranty-grid{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1303,29 +1280,8 @@
     line-height: 1.7;
   }
 
-  /* ============================================
-     RESPONSIVE 追加
-     ============================================ */
-  @media (max-width: 980px){
-    .symptoms-grid{ grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-    .symptom{ padding: 1.5rem 1rem; }
-    .symptom-icon{ width: 100%; aspect-ratio: 1/1; }
-    .craftsmen-grid{ grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    .paints-grid{ grid-template-columns: 1fr; gap: 1rem; }
-    .story-wrap{ grid-template-columns: 1fr; gap: 3rem; }
-    .story-img{ aspect-ratio: 4/3; max-width: 70%; }
-    .journal-grid{ grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    .warranty-grid{ grid-template-columns: 1fr 1fr; gap: 1rem; }
-  }
-
-
-  /* ============================================
-     ★ NEW: PROCESS（施工の現場）
-     ============================================ */
-  .process-showcase{
-    background: var(--c-paper);
-    padding: 8rem 3rem;
-  }
+  /* PROCESS */
+  .process-showcase{ background: var(--c-paper); padding: 8rem 3rem; }
   .process-showcase-grid{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1377,10 +1333,19 @@
     line-height: 1.8;
     color: rgba(244,237,224,0.85);
   }
+
   @media (max-width: 980px){
+    .symptoms-grid{ grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .symptom{ padding: 1.5rem 1rem; }
+    .symptom-icon{ width: 100%; aspect-ratio: 1/1; }
+    .craftsmen-grid{ grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .paints-grid{ grid-template-columns: 1fr; gap: 1rem; }
+    .story-wrap{ grid-template-columns: 1fr; gap: 3rem; }
+    .story-img{ aspect-ratio: 4/3; max-width: 70%; }
+    .journal-grid{ grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .warranty-grid{ grid-template-columns: 1fr 1fr; gap: 1rem; }
     .process-showcase-grid{ grid-template-columns: 1fr; gap: 1.5rem; }
   }
-
 </style>
 </head>
 <body data-theme="forest">
@@ -1388,10 +1353,10 @@
 <!-- ===== THEME SWITCHER ===== -->
 <div class="theme-switcher" title="配色テーマを切り替え">
   <div class="theme-switcher-label">THEME</div>
-  <button class="theme-btn active" data-set="forest" title="Forest｜緑×銅"></button>
-  <button class="theme-btn" data-set="navy" title="Navy｜紺×金"></button>
-  <button class="theme-btn" data-set="sumi" title="Sumi｜墨×朱"></button>
-  <button class="theme-btn" data-set="indigo" title="Indigo｜和紙×藍"></button>
+  <button class="theme-btn active" data-set="forest" title="Forest｜緑×銅" aria-label="Forest"></button>
+  <button class="theme-btn" data-set="navy" title="Navy｜紺×金" aria-label="Navy"></button>
+  <button class="theme-btn" data-set="sumi" title="Sumi｜墨×朱" aria-label="Sumi"></button>
+  <button class="theme-btn" data-set="indigo" title="Indigo｜和紙×藍" aria-label="Indigo"></button>
 </div>
 
 <!-- ===== NAV ===== -->
@@ -1424,9 +1389,9 @@
   <div class="hero-visual">
     <div class="hero-image-frame">
       <picture>
-  <source srcset="images/03-hero-fuji.webp" type="image/webp">
-  <img src="images/03-hero-fuji.jpg" alt="静岡県の住宅塗装事例" loading="eager" fetchpriority="high" decoding="async">
-</picture>
+        <source srcset="images/03-hero-fuji.webp" type="image/webp">
+        <img src="images/03-hero-fuji.jpg" alt="静岡県の住宅塗装事例" width="900" height="1200" loading="eager" fetchpriority="high" decoding="async">
+      </picture>
     </div>
     <div class="hero-tag">
       <div class="num">4.8<span style="font-size:1.2rem; color: var(--c-accent);">/5.0</span></div>
@@ -1443,7 +1408,7 @@
   </div>
 </div>
 
-<!-- ===== ★ BEFORE / AFTER ★ ===== -->
+<!-- ===== BEFORE / AFTER ===== -->
 <section class="ba-section" id="beforeafter">
   <div class="section-header reveal">
     <div>
@@ -1458,11 +1423,9 @@
 
   <div class="ba-wrapper reveal">
     <div class="ba-slider" id="baSlider">
-      <!-- BEFORE (back) -->
-      <img class="ba-img" src="images/01-before.jpg" alt="施工前">
-      <!-- AFTER (front, clipped) -->
+      <img class="ba-img" src="images/01-before.jpg" alt="施工前" width="1600" height="1000" loading="lazy" decoding="async">
       <div class="ba-after-wrap" id="baAfterWrap">
-        <img class="ba-img" src="images/02-after.jpg" alt="施工後">
+        <img class="ba-img" src="images/02-after.jpg" alt="施工後" width="1600" height="1000" loading="lazy" decoding="async">
       </div>
       <div class="ba-handle" id="baHandle">
         <div class="ba-handle-circle"></div>
@@ -1476,7 +1439,7 @@
   </div>
 </section>
 
-<!-- ===== ★ NEW: SYMPTOMS ===== -->
+<!-- ===== SYMPTOMS ===== -->
 <section class="symptoms" id="symptoms">
   <div class="section-header reveal">
     <div>
@@ -1493,9 +1456,9 @@
     <div class="symptom reveal">
       <div class="symptom-icon">
         <picture>
-  <source srcset="images/symptom-01-leak.webp" type="image/webp">
-  <img src="images/symptom-01-leak.jpg" alt="雨漏りの症状" loading="lazy" decoding="async">
-</picture>
+          <source srcset="images/symptom-01-leak.webp" type="image/webp">
+          <img src="images/symptom-01-leak.jpg" alt="雨漏りの症状" width="300" height="300" loading="lazy" decoding="async">
+        </picture>
       </div>
       <h3 class="symptom-name">雨漏り</h3>
       <p class="symptom-desc">天井のシミ、壁のカビ、室内への水滴</p>
@@ -1504,9 +1467,9 @@
     <div class="symptom reveal">
       <div class="symptom-icon">
         <picture>
-  <source srcset="images/symptom-02-crack.webp" type="image/webp">
-  <img src="images/symptom-02-crack.jpg" alt="ヒビ割れの症状" loading="lazy" decoding="async">
-</picture>
+          <source srcset="images/symptom-02-crack.webp" type="image/webp">
+          <img src="images/symptom-02-crack.jpg" alt="ヒビ割れの症状" width="300" height="300" loading="lazy" decoding="async">
+        </picture>
       </div>
       <h3 class="symptom-name">ヒビ割れ</h3>
       <p class="symptom-desc">外壁の小さな亀裂、塗膜の浮き</p>
@@ -1515,9 +1478,9 @@
     <div class="symptom reveal">
       <div class="symptom-icon">
         <picture>
-  <source srcset="images/symptom-03-caulking.webp" type="image/webp">
-  <img src="images/symptom-03-caulking.jpg" alt="コーキング切れの症状" loading="lazy" decoding="async">
-</picture>
+          <source srcset="images/symptom-03-caulking.webp" type="image/webp">
+          <img src="images/symptom-03-caulking.jpg" alt="コーキング切れの症状" width="300" height="300" loading="lazy" decoding="async">
+        </picture>
       </div>
       <h3 class="symptom-name">コーキング切れ</h3>
       <p class="symptom-desc">外壁ボード間の目地が痩せ、隙間が出来る</p>
@@ -1526,9 +1489,9 @@
     <div class="symptom reveal">
       <div class="symptom-icon">
         <picture>
-  <source srcset="images/symptom-04-chalking.webp" type="image/webp">
-  <img src="images/symptom-04-chalking.jpg" alt="色あせ・チョーキングの症状" loading="lazy" decoding="async">
-</picture>
+          <source srcset="images/symptom-04-chalking.webp" type="image/webp">
+          <img src="images/symptom-04-chalking.jpg" alt="色あせ・チョーキングの症状" width="300" height="300" loading="lazy" decoding="async">
+        </picture>
       </div>
       <h3 class="symptom-name">色あせ</h3>
       <p class="symptom-desc">外壁・屋根の色味が褪せ、白っぽい粉が出る</p>
@@ -1537,9 +1500,9 @@
     <div class="symptom reveal">
       <div class="symptom-icon">
         <picture>
-  <source srcset="images/symptom-05-moss.webp" type="image/webp">
-  <img src="images/symptom-05-moss.jpg" alt="コケ・藻の症状" loading="lazy" decoding="async">
-</picture>
+          <source srcset="images/symptom-05-moss.webp" type="image/webp">
+          <img src="images/symptom-05-moss.jpg" alt="コケ・藻の症状" width="300" height="300" loading="lazy" decoding="async">
+        </picture>
       </div>
       <h3 class="symptom-name">コケ・藻</h3>
       <p class="symptom-desc">外壁の北面に緑色の汚れが付着している</p>
@@ -1554,7 +1517,6 @@
     </a>
   </div>
 </section>
-
 
 <!-- ===== WORKS ===== -->
 <section class="works" id="works">
@@ -1571,42 +1533,42 @@
 
   <div class="works-grid">
     <div class="work reveal">
-      <img class="work-img" src="images/03-hero-fuji.jpg" alt="静岡市駿河区M様邸">
+      <img class="work-img" src="images/03-hero-fuji.jpg" alt="静岡市駿河区M様邸" width="800" height="1000" loading="lazy" decoding="async">
       <div class="work-info">
         <div class="work-cat mono">EXTERIOR ・ SHIZUOKA</div>
         <div class="work-title">静岡市駿河区 M様邸<br>外壁塗装工事</div>
       </div>
     </div>
     <div class="work reveal">
-      <img class="work-img" src="images/02-after.jpg" alt="静岡市葵区T様邸">
+      <img class="work-img" src="images/02-after.jpg" alt="静岡市葵区T様邸" width="800" height="800" loading="lazy" decoding="async">
       <div class="work-info">
         <div class="work-cat mono">FULL RENOVATION</div>
         <div class="work-title">静岡市葵区 T様邸</div>
       </div>
     </div>
     <div class="work reveal">
-      <img class="work-img" src="images/img-06.jpg" alt="富士市S様邸 和風">
+      <img class="work-img" src="images/img-06.jpg" alt="富士市S様邸 和風" width="600" height="800" loading="lazy" decoding="async">
       <div class="work-info">
         <div class="work-cat mono">JAPANESE</div>
         <div class="work-title">富士市 S様邸</div>
       </div>
     </div>
     <div class="work reveal">
-      <img class="work-img" src="images/img-07.jpg" alt="静岡市清水区M様倉庫">
+      <img class="work-img" src="images/img-07.jpg" alt="静岡市清水区M様倉庫" width="800" height="800" loading="lazy" decoding="async">
       <div class="work-info">
         <div class="work-cat mono">WAREHOUSE</div>
         <div class="work-title">静岡市清水区 M様倉庫</div>
       </div>
     </div>
     <div class="work reveal">
-      <img class="work-img" src="images/img-08.jpg" alt="沼津市S様邸">
+      <img class="work-img" src="images/img-08.jpg" alt="沼津市S様邸" width="800" height="1000" loading="lazy" decoding="async">
       <div class="work-info">
         <div class="work-cat mono">EXTERIOR ・ NUMAZU</div>
         <div class="work-title">沼津市 S様邸</div>
       </div>
     </div>
     <div class="work reveal">
-      <img class="work-img" src="images/img-09.jpg" alt="富士宮市アパート">
+      <img class="work-img" src="images/img-09.jpg" alt="富士宮市アパート" width="800" height="800" loading="lazy" decoding="async">
       <div class="work-info">
         <div class="work-cat mono">APARTMENT</div>
         <div class="work-title">富士宮市 アパート</div>
@@ -1615,8 +1577,7 @@
   </div>
 </section>
 
-
-<!-- ===== ★ NEW: PROCESS SHOWCASE ===== -->
+<!-- ===== PROCESS SHOWCASE ===== -->
 <section class="process-showcase" id="process-showcase">
   <div class="section-header reveal">
     <div>
@@ -1633,9 +1594,9 @@
   <div class="process-showcase-grid">
     <div class="process-photo reveal">
       <picture>
-  <source srcset="images/img-10.webp" type="image/webp">
-  <img src="images/img-10.jpg" alt="現場で全体を見渡す職人" loading="lazy" decoding="async">
-</picture>
+        <source srcset="images/img-10.webp" type="image/webp">
+        <img src="images/img-10.jpg" alt="現場で全体を見渡す職人" width="800" height="1067" loading="lazy" decoding="async">
+      </picture>
       <div class="process-caption">
         <div class="process-caption-num">— 01</div>
         <div class="process-caption-title">現場の<em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--c-accent);">指揮</em>を執る</div>
@@ -1644,9 +1605,9 @@
     </div>
     <div class="process-photo reveal">
       <picture>
-  <source srcset="images/img-11.webp" type="image/webp">
-  <img src="images/img-11.jpg" alt="塗装作業中の職人" loading="lazy" decoding="async">
-</picture>
+        <source srcset="images/img-11.webp" type="image/webp">
+        <img src="images/img-11.jpg" alt="塗装作業中の職人" width="800" height="1067" loading="lazy" decoding="async">
+      </picture>
       <div class="process-caption">
         <div class="process-caption-num">— 02</div>
         <div class="process-caption-title"><em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--c-accent);">一塗り</em>に、込める。</div>
@@ -1656,7 +1617,7 @@
   </div>
 </section>
 
-<!-- ===== ★ NEW: CRAFTSMEN ===== -->
+<!-- ===== CRAFTSMEN ===== -->
 <section class="craftsmen" id="craftsmen">
   <div class="section-header reveal">
     <div>
@@ -1673,9 +1634,9 @@
     <article class="craftsman reveal">
       <div class="craftsman-photo">
         <picture>
-  <source srcset="images/img-12.webp" type="image/webp">
-  <img src="images/img-12.jpg" alt="代表 岡野" loading="lazy" decoding="async">
-</picture>
+          <source srcset="images/img-12.webp" type="image/webp">
+          <img src="images/img-12.jpg" alt="代表 岡野" width="600" height="800" loading="lazy" decoding="async">
+        </picture>
       </div>
       <div class="craftsman-role mono">FOUNDER ・ 代表</div>
       <h3 class="craftsman-name">岡野 雅彦<span class="en">Masahiko Okano</span></h3>
@@ -1688,9 +1649,9 @@
     <article class="craftsman reveal">
       <div class="craftsman-photo">
         <picture>
-  <source srcset="images/img-13.webp" type="image/webp">
-  <img src="images/img-13.jpg" alt="現場主任 高橋" loading="lazy" decoding="async">
-</picture>
+          <source srcset="images/img-13.webp" type="image/webp">
+          <img src="images/img-13.jpg" alt="現場主任 高橋" width="600" height="800" loading="lazy" decoding="async">
+        </picture>
       </div>
       <div class="craftsman-role mono">SITE FOREMAN ・ 現場主任</div>
       <h3 class="craftsman-name">高橋 健太<span class="en">Kenta Takahashi</span></h3>
@@ -1703,9 +1664,9 @@
     <article class="craftsman reveal">
       <div class="craftsman-photo">
         <picture>
-  <source srcset="images/img-14.webp" type="image/webp">
-  <img src="images/img-14.jpg" alt="塗装職人 中村" loading="lazy" decoding="async">
-</picture>
+          <source srcset="images/img-14.webp" type="image/webp">
+          <img src="images/img-14.jpg" alt="塗装職人 中村" width="600" height="800" loading="lazy" decoding="async">
+        </picture>
       </div>
       <div class="craftsman-role mono">PAINTER ・ 塗装職人</div>
       <h3 class="craftsman-name">中村 翔太<span class="en">Shota Nakamura</span></h3>
@@ -1718,9 +1679,9 @@
     <article class="craftsman reveal">
       <div class="craftsman-photo">
         <picture>
-  <source srcset="images/img-15.webp" type="image/webp">
-  <img src="images/img-15.jpg" alt="アドバイザー 杉本" loading="lazy" decoding="async">
-</picture>
+          <source srcset="images/img-15.webp" type="image/webp">
+          <img src="images/img-15.jpg" alt="アドバイザー 杉本" width="600" height="800" loading="lazy" decoding="async">
+        </picture>
       </div>
       <div class="craftsman-role mono">ADVISOR ・ お客様窓口</div>
       <h3 class="craftsman-name">杉本 美咲<span class="en">Misaki Sugimoto</span></h3>
@@ -1732,8 +1693,7 @@
   </div>
 </section>
 
-
-<!-- ===== ★ NEW: PAINTS ===== -->
+<!-- ===== PAINTS ===== -->
 <section class="paints" id="paints">
   <div class="section-header reveal">
     <div>
@@ -1780,15 +1740,14 @@
   </div>
 </section>
 
-
-<!-- ===== ★ NEW: STORY ===== -->
+<!-- ===== STORY ===== -->
 <section class="story" id="story">
   <div class="story-wrap">
     <div class="story-img reveal">
       <picture>
-  <source srcset="images/img-16.webp" type="image/webp">
-  <img src="images/img-16.jpg" alt="創業者" loading="lazy" decoding="async">
-</picture>
+        <source srcset="images/img-16.webp" type="image/webp">
+        <img src="images/img-16.jpg" alt="創業者" width="600" height="800" loading="lazy" decoding="async">
+      </picture>
     </div>
     <div class="story-content reveal">
       <div class="section-label mono">OUR STORY</div>
@@ -1813,7 +1772,6 @@
     </div>
   </div>
 </section>
-
 
 <!-- ===== ESTIMATE ===== -->
 <section class="estimate-section" id="estimate">
@@ -1847,7 +1805,7 @@
           <div class="est-tsubo-num" id="tsuboValue">30</div>
           <div class="est-tsubo-unit">坪 (約 99㎡)</div>
         </div>
-        <input type="range" min="20" max="60" value="30" step="5" class="est-slider" id="tsuboSlider">
+        <input type="range" min="20" max="60" value="30" step="5" class="est-slider" id="tsuboSlider" aria-label="建物の坪数">
       </div>
 
       <div class="est-field">
@@ -1892,7 +1850,7 @@
   </div>
 </section>
 
-<!-- ===== ★ NEW: JOURNAL ===== -->
+<!-- ===== JOURNAL ===== -->
 <section class="journal" id="journal">
   <div class="section-header reveal">
     <div>
@@ -1909,9 +1867,9 @@
     <article class="journal-item reveal">
       <div class="journal-thumb">
         <picture>
-  <source srcset="images/img-17.webp" type="image/webp">
-  <img src="images/img-17.jpg" alt="GW休業のご案内" loading="lazy" decoding="async">
-</picture>
+          <source srcset="images/img-17.webp" type="image/webp">
+          <img src="images/img-17.jpg" alt="GW休業のご案内" width="800" height="600" loading="lazy" decoding="async">
+        </picture>
       </div>
       <div class="journal-date">2026 ・ 04<span class="journal-cat mono">NOTICE</span></div>
       <h3 class="journal-title">GW休業のご案内</h3>
@@ -1921,9 +1879,9 @@
     <article class="journal-item reveal">
       <div class="journal-thumb">
         <picture>
-  <source srcset="images/img-18.webp" type="image/webp">
-  <img src="images/img-18.jpg" alt="沖縄離島へ塗料視察" loading="lazy" decoding="async">
-</picture>
+          <source srcset="images/img-18.webp" type="image/webp">
+          <img src="images/img-18.jpg" alt="沖縄離島へ塗料視察" width="800" height="600" loading="lazy" decoding="async">
+        </picture>
       </div>
       <div class="journal-date">2026 ・ 03<span class="journal-cat mono">REPORT</span></div>
       <h3 class="journal-title">沖縄離島へ、<br>塗料の耐候性視察に行ってきました</h3>
@@ -1933,9 +1891,9 @@
     <article class="journal-item reveal">
       <div class="journal-thumb">
         <picture>
-  <source srcset="images/img-19.webp" type="image/webp">
-  <img src="images/img-19.jpg" alt="施工の様子" loading="lazy" decoding="async">
-</picture>
+          <source srcset="images/img-19.webp" type="image/webp">
+          <img src="images/img-19.jpg" alt="施工の様子" width="800" height="600" loading="lazy" decoding="async">
+        </picture>
       </div>
       <div class="journal-date">2025 ・ 11<span class="journal-cat mono">PROCESS</span></div>
       <h3 class="journal-title">下地処理の現場、お見せします</h3>
@@ -1945,9 +1903,9 @@
     <article class="journal-item reveal">
       <div class="journal-thumb">
         <picture>
-  <source srcset="images/img-20.webp" type="image/webp">
-  <img src="images/img-20.jpg" alt="梅雨前点検チェックリスト" loading="lazy" decoding="async">
-</picture>
+          <source srcset="images/img-20.webp" type="image/webp">
+          <img src="images/img-20.jpg" alt="梅雨前点検チェックリスト" width="800" height="600" loading="lazy" decoding="async">
+        </picture>
       </div>
       <div class="journal-date">2026 ・ 05<span class="journal-cat mono">CHECKLIST</span></div>
       <h3 class="journal-title">梅雨前にチェック！<br>住まいの点検6ポイント</h3>
@@ -1956,8 +1914,7 @@
   </div>
 </section>
 
-
-<!-- ===== ★ NEW: WARRANTY ===== -->
+<!-- ===== WARRANTY ===== -->
 <section class="warranty" id="warranty">
   <div class="warranty-wrap">
     <div class="section-header reveal">
@@ -1996,11 +1953,9 @@
   </div>
 </section>
 
-
-
 <!-- ===== AI CHAT ===== -->
 <button class="ai-chat-launcher" id="aiLauncher" aria-label="AI相談">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
   </svg>
 </button>
@@ -2012,7 +1967,7 @@
       <div class="name">ヴァーダントAI相談</div>
       <div class="status mono">ONLINE</div>
     </div>
-    <button class="ai-close" id="aiClose">×</button>
+    <button class="ai-close" id="aiClose" aria-label="閉じる">×</button>
   </div>
   <div class="ai-body" id="aiBody">
     <div class="ai-msg bot">
@@ -2027,9 +1982,9 @@
     <button class="ai-quick" data-q="塗料の違い">塗料の違いは？</button>
   </div>
   <div class="ai-input-wrap">
-    <input type="text" class="ai-input" id="aiInput" placeholder="質問を入力してください…">
-    <button class="ai-send" id="aiSend">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <input type="text" class="ai-input" id="aiInput" placeholder="質問を入力してください…" aria-label="質問入力">
+    <button class="ai-send" id="aiSend" aria-label="送信">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
       </svg>
     </button>
@@ -2080,8 +2035,10 @@
   </div>
 </footer>
 
-<script>
-/* THEME SWITCHER */
+<script defer>
+/* ============================================
+   THEME SWITCHER
+   ============================================ */
 const themeButtons = document.querySelectorAll('.theme-btn');
 themeButtons.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -2091,59 +2048,95 @@ themeButtons.forEach(btn => {
   });
 });
 
-/* NAV SCROLL */
+/* ============================================
+   NAV SCROLL（rAFスロットリング）
+   ============================================ */
 const nav = document.getElementById('nav');
+let navTicking = false;
 window.addEventListener('scroll', () => {
-  if(window.scrollY > 30) nav.classList.add('scrolled');
-  else nav.classList.remove('scrolled');
-});
+  if (!navTicking) {
+    requestAnimationFrame(() => {
+      if (window.scrollY > 30) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+      navTicking = false;
+    });
+    navTicking = true;
+  }
+}, { passive: true });
 
-/* REVEAL ON SCROLL */
+/* ============================================
+   REVEAL ON SCROLL（順次遅延を削除→TBT短縮）
+   ============================================ */
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if(e.isIntersecting){
-      setTimeout(() => e.target.classList.add('in'), i * 80);
+  entries.forEach((e) => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
       observer.unobserve(e.target);
     }
   });
-}, { threshold: 0.12 });
+}, { threshold: 0.12, rootMargin: '50px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-/* COPYRIGHT YEAR (auto-update) */
+/* COPYRIGHT YEAR */
 document.getElementById('copyrightText').textContent =
   `© 2013 - ${new Date().getFullYear()} VERDANT CO., LTD. ALL RIGHTS RESERVED.`;
 
 /* ============================================
-   BEFORE / AFTER SLIDER
+   BEFORE / AFTER SLIDER（強制リフロー対策版）
    ============================================ */
 const baSlider = document.getElementById('baSlider');
 const baAfterWrap = document.getElementById('baAfterWrap');
 const baHandle = document.getElementById('baHandle');
 let baDragging = false;
+let baSliderRect = null;
+let baRafPending = false;
+let baPendingPercent = 50;
 
-function syncAfterImg(){
-  const w = baSlider.getBoundingClientRect().width;
-  baAfterWrap.style.setProperty('--ba-w', w + 'px');
+function updateBaSliderRect() {
+  baSliderRect = baSlider.getBoundingClientRect();
+  baAfterWrap.style.setProperty('--ba-w', baSliderRect.width + 'px');
 }
-function updateBA(percent){
-  percent = Math.max(0, Math.min(100, percent));
-  baAfterWrap.style.width = percent + '%';
-  baHandle.style.left = percent + '%';
+
+function applyBA() {
+  baAfterWrap.style.width = baPendingPercent + '%';
+  baHandle.style.left = baPendingPercent + '%';
+  baRafPending = false;
 }
-function getPos(e){
-  const rect = baSlider.getBoundingClientRect();
-  const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
-  return (x / rect.width) * 100;
+
+function updateBA(percent) {
+  baPendingPercent = Math.max(0, Math.min(100, percent));
+  if (!baRafPending) {
+    baRafPending = true;
+    requestAnimationFrame(applyBA);
+  }
 }
-baSlider.addEventListener('mousedown', e => { baDragging = true; updateBA(getPos(e)); });
-baSlider.addEventListener('touchstart', e => { baDragging = true; updateBA(getPos(e)); }, {passive:true});
-window.addEventListener('mousemove', e => { if(baDragging) updateBA(getPos(e)); });
-window.addEventListener('touchmove', e => { if(baDragging) updateBA(getPos(e)); }, {passive:true});
-window.addEventListener('mouseup', () => baDragging = false);
-window.addEventListener('touchend', () => baDragging = false);
-window.addEventListener('resize', syncAfterImg);
-window.addEventListener('load', () => { syncAfterImg(); updateBA(50); });
-setTimeout(() => { syncAfterImg(); updateBA(50); }, 300);
+
+function getPos(e) {
+  if (!baSliderRect) updateBaSliderRect();
+  const x = (e.touches ? e.touches[0].clientX : e.clientX) - baSliderRect.left;
+  return (x / baSliderRect.width) * 100;
+}
+
+baSlider.addEventListener('mousedown', e => {
+  baDragging = true;
+  updateBaSliderRect();
+  updateBA(getPos(e));
+});
+baSlider.addEventListener('touchstart', e => {
+  baDragging = true;
+  updateBaSliderRect();
+  updateBA(getPos(e));
+}, { passive: true });
+window.addEventListener('mousemove', e => { if (baDragging) updateBA(getPos(e)); }, { passive: true });
+window.addEventListener('touchmove',  e => { if (baDragging) updateBA(getPos(e)); }, { passive: true });
+window.addEventListener('mouseup',  () => { baDragging = false; });
+window.addEventListener('touchend', () => { baDragging = false; });
+window.addEventListener('resize', updateBaSliderRect, { passive: true });
+
+window.addEventListener('load', () => {
+  updateBaSliderRect();
+  updateBA(50);
+});
 
 /* ============================================
    ESTIMATE SIMULATOR
@@ -2156,11 +2149,11 @@ const labels = {
 };
 const BASE_PER_TSUBO = 2.8;
 
-function calcPrice(){
+function calcPrice() {
   const center = BASE_PER_TSUBO * state.tsubo * state.floor * state.kind * state.grade;
   return { low: Math.round(center * 0.92), high: Math.round(center * 1.18) };
 }
-function updateEstimate(){
+function updateEstimate() {
   const { low, high } = calcPrice();
   document.getElementById('priceLow').textContent = low;
   document.getElementById('priceHigh').textContent = high;
@@ -2188,7 +2181,7 @@ tsuboSlider.addEventListener('input', e => {
 updateEstimate();
 
 /* ============================================
-   AI CHAT (デモ用、本番では Cloudflare Workers + Claude API に置換)
+   AI CHAT (デモ用)
    ============================================ */
 const aiLauncher = document.getElementById('aiLauncher');
 const aiWindow = document.getElementById('aiWindow');
@@ -2209,35 +2202,35 @@ const demoResponses = {
   default: 'ご質問ありがとうございます。<br><br>こちらは現在デモ表示のため、定型回答のみとなっております。<br><br>本番運用時は Claude AI と連携し、お住まいの状況に合わせた具体的なアドバイスが可能になります。<br><br>お急ぎの場合は <strong>050-XXXX-1234</strong> までお電話ください。'
 };
 
-function addMessage(text, type = 'bot'){
+function addMessage(text, type = 'bot') {
   const msg = document.createElement('div');
   msg.className = 'ai-msg ' + type;
   msg.innerHTML = text;
   aiBody.appendChild(msg);
   aiBody.scrollTop = aiBody.scrollHeight;
 }
-function addTyping(){
+function addTyping() {
   const t = document.createElement('div');
   t.className = 'ai-typing'; t.id = 'aiTyping';
   t.innerHTML = '<span></span><span></span><span></span>';
   aiBody.appendChild(t);
   aiBody.scrollTop = aiBody.scrollHeight;
 }
-function removeTyping(){
+function removeTyping() {
   const t = document.getElementById('aiTyping');
-  if(t) t.remove();
+  if (t) t.remove();
 }
-function findResponse(input){
-  for(const key of Object.keys(demoResponses)){
-    if(key === 'default') continue;
-    if(input.includes(key) || input.includes(key.replace(/時期|相場|の違い/g, ''))) {
+function findResponse(input) {
+  for (const key of Object.keys(demoResponses)) {
+    if (key === 'default') continue;
+    if (input.includes(key) || input.includes(key.replace(/時期|相場|の違い/g, ''))) {
       return demoResponses[key];
     }
   }
   return demoResponses.default;
 }
-function handleSend(text){
-  if(!text.trim()) return;
+function handleSend(text) {
+  if (!text.trim()) return;
   addMessage(text, 'user');
   aiInput.value = '';
   addTyping();
@@ -2247,9 +2240,9 @@ function handleSend(text){
   }, 900 + Math.random() * 600);
 }
 aiSend.addEventListener('click', () => handleSend(aiInput.value));
-aiInput.addEventListener('keydown', e => { if(e.key === 'Enter') handleSend(aiInput.value); });
+aiInput.addEventListener('keydown', e => { if (e.key === 'Enter') handleSend(aiInput.value); });
 aiQuick.addEventListener('click', e => {
-  if(e.target.classList.contains('ai-quick')) handleSend(e.target.dataset.q);
+  if (e.target.classList.contains('ai-quick')) handleSend(e.target.dataset.q);
 });
 </script>
 

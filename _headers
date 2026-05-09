@@ -1,0 +1,40 @@
+# ============================================
+# Cloudflare Pages Headers
+# 静的アセットを長期キャッシュ、HTMLは短期で再検証
+# ============================================
+
+# 画像：1年キャッシュ（ファイル名にハッシュが含まれる前提なら immutable で完全固定）
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+
+# 画像（webp/jpg/png/svg）の念押し
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+# JS / CSS（外部ファイル化した場合のため）
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML：短期キャッシュ＋更新検証
+/*.html
+  Cache-Control: public, max-age=600, must-revalidate
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# トップページ
+/
+  Cache-Control: public, max-age=600, must-revalidate
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
